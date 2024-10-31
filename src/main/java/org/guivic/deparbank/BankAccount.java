@@ -36,6 +36,7 @@ public class BankAccount {
         if (amountIsValid(amount)) {
             balance += amount;
             movements.add("Deposit of " + amount + "€ in " + iban);
+            System.out.println("New Balance: " + getBalance());
             if (amountOver3k(amount)) {
                 System.out.println("NOTICE: REPORT TO TAX AUTHORITIES");
             }
@@ -47,6 +48,7 @@ public class BankAccount {
             if (balance - amount >= -50) {
                 balance -= amount;
                 movements.add("Withdraw of " + amount + "€ at " + iban);
+                System.out.println("New Balance: " + getBalance());
                 if (balance < 0) {
                     System.out.println("NOTICE: NEGATIVE BALANCE");
                 }

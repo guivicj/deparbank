@@ -18,13 +18,7 @@ public class Deparbank {
 
         Map<Integer, MenuOption> options = new HashMap<>();
 
-        options.put(1, new Options());
-        options.put(2, new OptionsShowIBAN());
-        options.put(3, new OptionsShowAccountHolder());
-        options.put(4, new OptionsShowBalance());
-        options.put(5, new OptionsDeposit());
-        options.put(6, new OptionsWithdraw());
-        options.put(7, new OptionsMovements());
+        optionsToMap(options);
 
         while (!exit) {
             System.out.print("""
@@ -51,5 +45,15 @@ public class Deparbank {
                 exit = true;
             }
         }
+    }
+
+    private static void optionsToMap(Map<Integer, MenuOption> options) {
+        options.put(1, new Options());
+        options.put(2, new OptionsShowIBAN());
+        options.put(3, new OptionsShowAccountHolder());
+        options.put(4, new OptionsShowBalance());
+        options.put(5, new OptionsDeposit());
+        options.put(6, new OptionsWithdraw());
+        options.put(7, new OptionsMovements());
     }
 }
