@@ -22,9 +22,12 @@ public class Deparbank {
         options.put(2, new OptionsShowIBAN());
         options.put(3, new OptionsShowAccountHolder());
         options.put(4, new OptionsShowBalance());
+        options.put(5, new OptionsDeposit());
+        options.put(6, new OptionsWithdraw());
+        options.put(7, new OptionsMovements());
 
         while (!exit) {
-            System.out.println("""
+            System.out.print("""
                     MAIN MENU
                     =========
                     [ 1 ] Account details
@@ -36,7 +39,7 @@ public class Deparbank {
                     [ 7 ] Movements
                     [ 8 ] Exit
                     ---
-                    Choose an option: """);
+                    Choose an option: \s""");
             int option = new Scanner(System.in).nextInt();
 
             MenuOption menuOption = options.get(option);
