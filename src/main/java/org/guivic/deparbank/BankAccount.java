@@ -68,4 +68,12 @@ public class BankAccount {
     private static boolean amountIsValid(double amount) {
         return amount > 0;
     }
+
+    @Override
+    public String toString() {
+        return iban + "#" +
+                accountHolder + "#" +
+                balance + "#" +
+                movements;
+    }
 }

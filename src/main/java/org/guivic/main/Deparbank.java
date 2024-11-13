@@ -1,23 +1,17 @@
 package org.guivic.main;
 
 import org.guivic.deparbank.*;
+import org.guivic.gson.BankStorage;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class Deparbank {
 
     public static void main(String[] args) {
         try {
-            System.out.print("IBAN : ");
-            String iban = new Scanner(System.in).nextLine();
-            System.out.print("Account holder : ");
-            String accountHolder = new Scanner(System.in).nextLine();
-            System.out.print("Balance : ");
-            Double balance = new Scanner(System.in).nextDouble();
-
-            BankAccount bankAccount = new BankAccount(iban, accountHolder, balance);
+            BankStorage storage = new BankStorage();
+            storage.loadAccounts();
+            BankAccount bankAccount = getBankAccount();
             boolean exit = false;
 
             Map<Integer, MenuOption> options = new HashMap<>();
@@ -47,11 +41,24 @@ public class Deparbank {
                     String scan = new Scanner(System.in).nextLine();
                 } else {
                     exit = true;
+                    storage.saveAccounts(bankAccount);
                 }
             }
         } catch (Exception e) {
             System.out.println("ERROR: Incorrect Input");
         }
+    }
+
+    private static BankAccount getBankAccount() {
+        System.out.print("IBAN : ");
+        String iban = new Scanner(System.in).nextLine();
+        System.out.print("Account holder : ");
+        String accountHolder = new Scanner(System.in).nextLine();
+        System.out.print("Balance : ");
+        Double balance = new Scanner(System.in).nextDouble();
+
+        BankAccount bankAccount = new BankAccount(iban, accountHolder, balance);
+        return bankAccount;
     }
 
     private static void optionsToMap(Map<Integer, MenuOption> options) {

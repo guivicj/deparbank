@@ -1,0 +1,14 @@
+[
+  {
+    "iban": "ES6621000418401234567891",
+    "accountHolder": "Chemi",
+    "balance": 500.0,
+    "movements": []
+  },
+  {
+    "iban": "ES66210004184012345671234",
+    "accountHolder": "Josemi",
+    "balance": 7410.0,
+    "movements": []
+  }
+]
